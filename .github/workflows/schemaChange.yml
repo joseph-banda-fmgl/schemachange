@@ -32,7 +32,6 @@ jobs:
           pytest
       - name: Test run
         run: |
-          #schemachange --help
           schemachange -f./schemachange/snowflake_objects -a     $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WH -c $SNOWFLAKE_DB.CICD_SPIKE.CHANGE_HISTORY 
 
           
