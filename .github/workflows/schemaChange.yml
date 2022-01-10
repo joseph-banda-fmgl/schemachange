@@ -1,10 +1,10 @@
 # Create Yaml File for Schema Change
 name: SchemaChange
 
-on: 
-  push:
-    branches: [ master ]
-  workflow_dispatch:  
+on: [push]
+#  push:
+#    branches: [ feature/test-functionality ]
+#  workflow_dispatch:  
 
 #setting up needed variables
 env: 
