@@ -14,6 +14,8 @@ env:
  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
  SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
  SNOWFLAKE_DB: ${{ secrets.SNOWFLAKE_DB }}
+ SNOWFLAKE_QUERY_TAG: ${{ secrets.SNOWFLAKE_QUERY_TAG }}
+
 
 jobs:
   build:
@@ -32,6 +34,6 @@ jobs:
           pytest
       - name: Test run
         run: |
-          schemachange -f./schemachange/snowflake_objects -a     $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WH -c $SNOWFLAKE_DB.CICD_SPIKE.CHANGE_HISTORY 
+          schemachange -f./schemachange/snowflake_objects -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WH -c $SNOWFLAKE_DB.CICD_SPIKE.CHANGE_HISTORY --query-tag $SNOWFLAKE_QUERY_TAG
 
           
