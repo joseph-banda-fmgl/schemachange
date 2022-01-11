@@ -1,0 +1,5 @@
+use role "DAA.Creator.SBX";
+use schema EDW.CICD_SPIKE;
+USE WAREHOUSE COMPUTE_WH;
+-- Run Stored Proc
+CALL EDW.CICD_SPIKE.TEST_TABLE_JB_INSERT('test');
