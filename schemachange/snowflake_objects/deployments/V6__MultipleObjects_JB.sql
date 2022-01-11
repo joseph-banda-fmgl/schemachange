@@ -19,10 +19,7 @@ CREATE OR REPLACE PROCEDURE EDW.CICD_SPIKE.TEST_TABLE_JB_INSERT(TEST_VAR varchar
     LANGUAGE JAVASCRIPT
     AS
     $$
-          var rs = snowflake.execute( { sqlText: 
-                                                `INSERT INTO EDW.CICD_SPIKE.TEST_TABLE_JB ("TABLE_KY","TABLE_DESC","TABLE_DECS2")
-                                                            VALUES ('1','sample description','another sample description'),('2','this is a test','this is also a test');`
-                                    } );
+        snowflake.execute( { sqlText:`INSERT INTO EDW.CICD_SPIKE.TEST_TABLE_JB ("TABLE_KY","TABLE_DESC","TABLE_DECS2") VALUES ('1','sample description','another sample description'),('2','this is a test','this is also a test');`} );
         return 'Done';
     $$;
 
