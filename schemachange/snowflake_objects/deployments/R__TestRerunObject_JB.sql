@@ -1,3 +1,3 @@
 use role "DAA.Creator.SBX";
 
--- testing repeatable script
+use role "EDW_JOSEPH.BANDA";
