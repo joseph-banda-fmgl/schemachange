@@ -1,12 +1,13 @@
-# Create Yaml File for Schema Change
+# Name of Git Action
 name: SchemaChange
 
+# Run Git Actions on push
 on: [push]
 #  push:
 #    branches: [ feature/test-functionality ]
 #  workflow_dispatch:  
 
-#setting up needed variables
+# setting up needed variables
 env: 
  SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
  SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
@@ -27,14 +28,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - name: Install dependencies
+      - name: Install python dependencies
         run: |
           python -m pip install -e .[dev]
       - name: Test with pytest
         run: |
           pytest
-      - name: Test run
+      - name: Run Snowchange
         run: |
           schemachange -f./schemachange/snowflake_objects -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WH -c $SNOWFLAKE_DB.SCHEMACHANGE.CHANGE_HISTORY --query-tag $SNOWFLAKE_QUERY_TAG
-
-          
