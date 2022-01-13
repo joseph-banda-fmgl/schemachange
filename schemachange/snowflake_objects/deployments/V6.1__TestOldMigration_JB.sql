@@ -1,0 +1,8 @@
+-- Expect that this one will not run
+use role "DAA.Creator.SBX";
+
+CREATE OR REPLACE TABLE EDW.CICD_SPIKE.TEST_TABLE_JB
+(
+	TABLE_KY VARCHAR(16777216),
+    TABLE_DESC VARCHAR(16777216)
+);
